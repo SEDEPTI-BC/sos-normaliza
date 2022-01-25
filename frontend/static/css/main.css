@@ -1,0 +1,44 @@
+@font-face {
+  font-family: 'NexaLight';
+  src: url('@/static/fonts/NexaLight.otf');
+}
+
+@font-face {
+  font-family: 'NexaBlack';
+  src: url('@/static/fonts/NexaBlack.otf');
+}
+
+@font-face {
+  font-family: 'NexaBold';
+  src: url('@/static/fonts/NexaBold.otf');
+}
+
+:root {
+  --main-color: #D461D9;
+  --main-bg: #290e51;
+}
+
+.nexa-bold {
+  font-family: 'NexaBold';
+}
+
+.nexa-black {
+  font-family: 'NexaBlack';
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'NexaLight';
+}
+
+html,
+body {
+  height: 100%;
+  overflow-x: hidden;
+  background-image: url('@/static/images/banner.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
