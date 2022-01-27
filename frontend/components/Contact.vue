@@ -1,9 +1,11 @@
 <template>
   <div>
-    Tutorial
+    Contact
   </div>
 </template>
 
 <script>
-export default {}
+export default {
+
+}
 </script>

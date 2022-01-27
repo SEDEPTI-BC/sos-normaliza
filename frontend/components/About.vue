@@ -1,9 +1,11 @@
 <template>
   <div>
-    Tutorial
+    About
   </div>
 </template>
 
 <script>
-export default {}
+export default {
+
+}
 </script>

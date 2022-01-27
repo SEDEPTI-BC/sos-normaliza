@@ -1,5 +1,5 @@
 <template>
-  <div class="d-flex flex-row-reverse text-light">
+  <div class="wrapper-rights d-flex flex-row-reverse text-light">
     <div class="maintainer">
       <img src="@/static/images/bc.png" alt="Biblioteca Central">
     </div>
@@ -17,6 +17,14 @@ export default {
 
 <style scoped>
   img {
-    height: 75px;
+    max-height: 75px;
+    height: 100%;
+  }
+
+  @media screen and (max-width: 768px) {
+    .wrapper-rights {
+      flex-direction: column !important;
+      align-items: center;
+   }
   }
 </style>

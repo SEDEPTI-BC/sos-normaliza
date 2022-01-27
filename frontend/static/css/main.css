@@ -1,21 +1,41 @@
 @font-face {
+  font-family: 'CrafterRegular';
+  src: url('@/static/fonts/crafter/CrafterRegular.otf');
+}
+
+@font-face {
+  font-family: 'CrafterRough';
+  src: url('@/static/fonts/crafter/CrafterRough.otf');
+}
+
+@font-face {
   font-family: 'NexaLight';
-  src: url('@/static/fonts/NexaLight.otf');
+  src: url('@/static/fonts/nexa/NexaLight.otf');
 }
 
 @font-face {
   font-family: 'NexaBlack';
-  src: url('@/static/fonts/NexaBlack.otf');
+  src: url('@/static/fonts/nexa/NexaBlack.otf');
 }
 
 @font-face {
   font-family: 'NexaBold';
-  src: url('@/static/fonts/NexaBold.otf');
+  src: url('@/static/fonts/nexa/NexaBold.otf');
 }
 
 :root {
   --main-color: #D461D9;
   --main-bg: #290e51;
+  --secondary-bg: #3e2169;
+  --border-bg: #6942a3;
+}
+
+.crafter-regular {
+  font-family: 'CrafterRegular';
+}
+
+.crafter-rough {
+  font-family: 'CrafterRough';
 }
 
 .nexa-bold {
@@ -35,10 +55,38 @@
 
 html,
 body {
+  min-height: 100vh;
   height: 100%;
-  overflow-x: hidden;
+  overflow-y: scroll;
+  scrollbar-width: none;
+  --webkit-scrollbar-width: none;
+  --ms-scrollbar-width: none;
+  --o-scrollbar-width: none;
   background-image: url('@/static/images/banner.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+}
+
+.form-control:focus {
+  border-color: var(--border-bg);
+  outline-color: var(--main-color) !important;
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.075) inset, 0px 0px 8px var(--main-color);
+}
+
+button[type="submit"] {
+  border: 1px solid var(--main-bg);
+  background: var(--main-bg);
+}
+
+button[type="submit"]:hover,
+button[type="submit"]:focus,
+button[type="submit"]:active,
+button[type="submit"]:target,
+button[type="submit"]:visited {
+  border: 1px solid var(--border-bg);
+  background: var(--secondary-bg);
+  border-color: var(--secondary-bg);
+  outline-color: var(--main-color) !important;
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.075) inset, 0px 0px 8px var(--main-color);
 }
