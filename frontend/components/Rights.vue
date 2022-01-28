@@ -1,7 +1,9 @@
 <template>
   <div class="wrapper-rights d-flex flex-row-reverse text-light">
     <div class="maintainer">
-      <img src="@/static/images/bc.png" alt="Biblioteca Central">
+      <a href="http://bc.ufpa.br" target="_blank" rel="noopener noreferrer">
+        <img src="@/static/images/bc.png" alt="Biblioteca Central">
+      </a>
     </div>
     <div class="developer mr-2">
       <img src="@/static/images/sedepti.png" alt="SEDEPTI">

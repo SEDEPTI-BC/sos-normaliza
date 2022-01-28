@@ -1,15 +1,17 @@
 <template>
   <div class="wrapper-brand d-flex flex-column">
-    <a href="/" class="text-decoration-none text-light">
+    <NuxtLink to="/" class="text-decoration-none text-light">
       <div class="brand d-flex flex-column">
         <span class="head crafter-rough">SOS</span>
         <span class="body crafter-rough">Normaliza</span>
       </div>
-    </a>
+    </NuxtLink>
     <div class="start">
-      <button type="button" class="btn border-light text-light">
-        <span class="crafter-rough">Start</span>
-      </button>
+      <a name="btnStart" id="btnStart" class="btn btn-start border-light" role="button">
+        <NuxtLink to="/agendamento" class="text-light crafter-rough">
+          Start
+        </NuxtLink>
+      </a>
     </div>
   </div>
 </template>
@@ -33,15 +35,16 @@ export default {
     font-size: 2rem;
   }
 
-  .start > button {
+  .start > .btn-start {
     width: 100%;
     max-height: 45px;
     max-width: 230px;
+    font-size: 1.5rem;
     border-radius: 35px !important;
     background-color: var(--main-bg) !important;
   }
 
-  .start > button:hover {
+  .start > .btn-start:hover {
     transition: 0.6s;
     text-decoration: underline !important;
     background-color: var(--secondary-bg) !important;

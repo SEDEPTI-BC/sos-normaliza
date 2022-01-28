@@ -14,11 +14,13 @@
 
 <script>
 export default {
-
+  props: {
+    url: String
+  }
 }
 </script>
 
-<style>
+<style scoped>
   h1, span {
     font-size: 1.5rem;
   }

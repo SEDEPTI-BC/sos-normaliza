@@ -30,20 +30,8 @@
   --border-bg: #6942a3;
 }
 
-.crafter-regular {
-  font-family: 'CrafterRegular';
-}
-
-.crafter-rough {
-  font-family: 'CrafterRough';
-}
-
-.nexa-bold {
-  font-family: 'NexaBold';
-}
-
-.nexa-black {
-  font-family: 'NexaBlack';
+::-webkit-scrollbar {
+  width: 0;
 }
 
 * {
@@ -66,6 +54,22 @@ body {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+}
+
+.crafter-regular {
+  font-family: 'CrafterRegular';
+}
+
+.crafter-rough {
+  font-family: 'CrafterRough';
+}
+
+.nexa-bold {
+  font-family: 'NexaBold';
+}
+
+.nexa-black {
+  font-family: 'NexaBlack';
 }
 
 .form-control:focus {

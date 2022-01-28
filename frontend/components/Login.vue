@@ -8,11 +8,11 @@
               <span aria-hidden="true">&times;</span>
             </button>
         </div>
-        <div class="modal-body">
+        <div class="modal-body bg-light">
           <form method="post">
             <div class="form-group">
               <label for="emailLogin">Informe o seu e-mail</label>
-              <input type="email" class="form-control" name="emailLogin" id="emailLogin" aria-describedby="emailHelpId" placeholder="tanjiro@kamado.com">
+              <input type="email" class="form-control" name="emailLogin" id="emailLogin" aria-describedby="emailHelpId" placeholder="tanjiro@kamado.com" autofocus>
             </div>
             <div class="form-group">
               <label for="passwordLogin">Informe a sua senha</label>

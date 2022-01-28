@@ -6,19 +6,19 @@
     <div class="collapse navbar-collapse" id="navbarTarget">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a class="nav-link text-light" href="#sobre">Sobre <span class="sr-only">(current)</span></a>
+          <NuxtLink class="nav-link text-light" to="/sobre">Sobre</NuxtLink>
         </li>
         <div class="separator d-none d-md-block border-right border-primary mx-2 my-auto"></div>
         <li class="nav-item active">
-          <a class="nav-link text-light" href="#contato">Contato</a>
+          <NuxtLink class="nav-link text-light" to="/contato">Contato</NuxtLink>
         </li>
         <div class="separator d-none d-md-block border-right border-primary mx-2 my-auto"></div>
         <li class="nav-item active">
-          <a class="nav-link text-light" href="#meu-espaco">Meu espaço</a>
+          <NuxtLink class="nav-link text-light" to="/meu-espaco">Meu espaço</NuxtLink>
         </li>
         <div class="separator d-none d-md-block border-right border-primary mx-2 my-auto"></div>
         <li class="nav-item active">
-          <a class="nav-link text-light" href="#tutorial">Tutorial</a>
+          <NuxtLink class="nav-link text-light" to="/tutorial">Tutorial</NuxtLink>
         </li>
       </ul>
       <ul class="nav navbar-nav ml-auto">
