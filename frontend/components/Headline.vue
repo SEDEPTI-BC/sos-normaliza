@@ -14,9 +14,7 @@
 
 <script>
 export default {
-  props: {
-    url: String
-  }
+  name: 'Headline',
 }
 </script>
 

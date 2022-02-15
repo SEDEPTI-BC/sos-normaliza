@@ -4,14 +4,8 @@
       <Navbar/>
     </header>
     <main class="d-md-flex align-items-center justify-content-between px-4">
-      <div class="col-sm-12 col-md-4 text-light">
-        <h1>
-          Ops! Não tem nada aqui <i class="em em-man-shrugging" aria-role="presentation" aria-label=""></i>
-        </h1>
-        <p>
-          Nossos desenvolvedores ainda devem estar desenvolvendo essa parte do sistema. Sinta-se a vontade para continuar navegando entre nossas outras páginas e no futuro volte aqui para conferir o que terá de novo <i class="em em-grin" aria-role="presentation" aria-label="GRINNING FACE WITH SMILING EYES"></i>
-        </p>
-      </div>
+      <!-- <NotFound class="col-sm-12 col-md-4 text-light" /> -->
+      <MySpace class="animate__animated animate__fadeIn my-space col-sm-12 col-md-5 text-light" />
       <Brand class="brand col-sm-12 col-md-5 my-4 pt-4 text-light"/>
     </main>
     <footer>

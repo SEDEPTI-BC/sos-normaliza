@@ -1,6 +1,6 @@
 <template>
   <nav class="navbar navbar-expand-md navbar-dark p-4 bg-transparent">
-    <button class="navbar-toggler border-muted ml-auto" type="button" data-toggle="collapse" data-target="#navbarTarget"> 
+    <button class="navbar-toggler border-muted ml-auto" type="button" data-toggle="collapse" data-target="#navbarTarget" aria-label="navbar-toggler"> 
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarTarget">
@@ -35,6 +35,7 @@
 
 <script>
 export default {
+  name: 'Navbar',
 }
 </script>
 
