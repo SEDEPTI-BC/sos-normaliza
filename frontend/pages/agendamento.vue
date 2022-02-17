@@ -3,7 +3,7 @@
     <header>
       <Navbar/>
     </header>
-    <main class="d-md-flex align-items-center justify-content-center px-4">
+    <main class="d-md-flex align-items-center justify-content-center">
       <div class="col-sm-12 col-md-8 text-light">
         <Scheduling class="animate__animated animate__fadeIn" />
       </div>
