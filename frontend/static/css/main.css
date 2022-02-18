@@ -47,9 +47,6 @@ body {
   height: 100%;
   overflow-y: scroll;
   scrollbar-width: none;
-  --webkit-scrollbar-width: none;
-  --ms-scrollbar-width: none;
-  --o-scrollbar-width: none;
   background-image: url('@/static/images/banner.jpg');
   background-size: cover;
   background-position: center;
