@@ -1,6 +1,11 @@
 <template>
   <div class="tutorial">
-    <video src="@/static/video/test.mp4" controls></video>
+    <figure>
+      <video src="@/static/video/test.mp4" controls></video>
+      <figcaption>
+        <b class="nexa-bold">Vídeo:</b> Tutorial de uso do novo SOS Normaliza
+      </figcaption>
+    </figure>
   </div>
 </template>
 

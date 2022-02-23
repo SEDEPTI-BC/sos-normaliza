@@ -7,16 +7,16 @@
           <li :class="{active: institutionalActive}">Informações institucionais</li>
           <li :class="{active: schedulingActive}">Informações do agendamento</li>
         </ul>
-        <fieldset class="animate__animated animate__fadeIn" v-if="showPersonal">
+        <fieldset class="animate__animated animate__fadeInLeft" v-if="showPersonal">
           <h2 class="fs-title nexa-bold">Informações pessoais</h2>
           <h3 class="fs-subtitle nexa-bold">Primeiramente, precisamos de algumas informações sobre você</h3>
-          <input type="text" name="nameUser" placeholder="Nome completo" v-model="nameUser">
-          <input type="text" name="phoneUser" placeholder="Telefone" v-model="phoneUser">
-          <input type="email" name="emailUser" id="" aria-describedby="emailHelpId" placeholder="E-mail" v-model="emailUser">
+          <input type="text" name="nameUser" placeholder="Insira seu nome completo" aria-label="Insira o seu nome completo" v-model="nameUser">
+          <input type="text" name="phoneUser" placeholder="Insira seu telefone/celular" aria-label="Insira seu número de telefone ou celular" v-model="phoneUser">
+          <input type="email" name="emailUser" id="emailUser" aria-label="Insira o e-mail, de preferência institucional" aria-describedby="emailHelpId" placeholder="Insira seu e-mail" v-model="emailUser">
           <small id="emailHelpId" class="form-text text-muted nexa-bold">Por favor, utilize preferencialmente o seu e-mail institucional</small>
-          <input type="button" name="next" class="next action-button" value="Próximo" @click="toInstitutional()">
+          <input type="button" name="next" class="next action-button" value="Próximo" aria-label="Ir para o próximo passo" @click="toInstitutional()">
         </fieldset>
-        <fieldset class="animate__animated animate__fadeIn" v-if="showInstitutional">
+        <fieldset class="animate__animated animate__fadeInLeft" v-if="showInstitutional">
           <h2 class="fs-title">Informações institucionais</h2>
           <h3 class="fs-subtitle nexa-bold">Agora precisamos conferir se realmente você é um estudante da UFPA</h3>
           <select name="courseUser" v-model="courseUser">
@@ -32,16 +32,16 @@
             <option>Instituto de Tecnologia</option>
             <option>Instituto de Ciências Sociais Aplicadas</option>
           </select>
-          <input type="text" name="registryUser" placeholder="Informe o seu número de matrícula" v-model="registryUser">
-          <input type="button" name="previous" class="previous action-button-previous" value="Anterior" @click="backToPersonal()">
-          <input type="button" name="next" class="next action-button" value="Próximo" @click="toScheduling()">
+          <input type="text" name="registryUser" placeholder="Informe o seu número de matrícula" aria-label="Informe o seu número de matrícula" v-model="registryUser">
+          <input type="button" name="previous" class="previous action-button-previous" value="Anterior" aria-label="Voltar para o passo anterior" @click="backToPersonal()">
+          <input type="button" name="next" class="next action-button" value="Próximo" aria-label="Ir para o próximo passo" @click="toScheduling()">
         </fieldset>
-        <fieldset class="animate__animated animate__fadeIn" v-if="showScheduling">
+        <fieldset class="animate__animated animate__fadeInLeft" v-if="showScheduling">
           <h2 class="fs-title">Informações do agendamento </h2>
           <h3 class="fs-subtitle nexa-bold">Por fim, conte um pouco para nós sobre as suas dúvidas</h3>
           <textarea name="messageUser" cols="30" rows="3" placeholder="Deixe uma mensagem para que possamos entender melhor suas necessidades" v-model="messageUser"></textarea>
-          <input type="button" name="previous" class="previous action-button-previous" value="Anterior" @click="toInstitutional">
-          <input type="submit" name="submit" class="submit action-button" value="Agendar">
+          <input type="button" name="previous" class="previous action-button-previous" value="Anterior" aria-label="Voltar para o passo anterior" @click="toInstitutional">
+          <input type="submit" name="submit" class="submit action-button" value="Agendar" aria-label="Concluir agendamento">
         </fieldset>
       </form>
     </div> 

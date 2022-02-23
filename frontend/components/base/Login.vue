@@ -16,7 +16,7 @@
             </div>
             <div class="form-group">
               <label for="passwordLogin">Informe a sua senha</label>
-              <input type="password" class="form-control" name="passwordLogin" id="passwordLogin" placeholder="***************">
+              <input type="password" class="form-control" name="passwordLogin" id="passwordLogin" placeholder="············">
             </div>
             <div class="form-group text-center mb-0">
               <small>
@@ -26,7 +26,6 @@
           </form>
         </div>
         <div class="modal-footer mx-auto">
-          <!-- <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button> -->
           <button type="submit" class="btn btn-primary">Login</button>
         </div>
       </div>

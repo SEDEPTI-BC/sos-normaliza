@@ -12,7 +12,7 @@
       </div>
       <div class="form-group">
         <label for="spacePassword">Informe a sua senha</label>
-        <input type="password" name="spacePassword" id="spacePassword" class="form-control" placeholder="*******">
+        <input type="password" name="spacePassword" id="spacePassword" class="form-control" placeholder="··········">
       </div>
       <button type="submit" class="btn btn-success border-light">Acessar</button>
     </form>
