@@ -1,15 +1,15 @@
 <template>
   <div class="index">
     <header>
-      <Navbar/>
+      <BaseNavbar/>
     </header>
     <main class="d-md-flex align-items-center justify-content-center">
       <div class="col-sm-12 col-md-8 text-light">
-        <Scheduling class="animate__animated animate__fadeIn" />
+        <BaseScheduling class="animate__animated animate__fadeIn" />
       </div>
     </main>
     <footer>
-      <Rights/>
+      <BaseRights/>
     </footer>
   </div>
 </template>

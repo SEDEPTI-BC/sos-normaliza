@@ -26,7 +26,7 @@
           <a class="text-light" name="loginButton" id="loginButton" href="#" role="button" data-toggle="modal" data-target="#loginModal">
             Login
           </a>
-          <Login/>
+          <BaseLogin/>
         </li>
       </ul>
     </div>

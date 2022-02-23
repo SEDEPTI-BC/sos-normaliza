@@ -1,15 +1,14 @@
 <template>
   <div class="index">
     <header>
-      <Navbar/>
+      <BaseNavbar/>
     </header>
     <main class="d-md-flex align-items-center justify-content-between px-4">
-      <!-- <NotFound class="col-sm-12 col-md-4 text-light" /> -->
-      <MySpace class="animate__animated animate__fadeIn my-space col-sm-12 col-md-5 text-light" />
-      <Brand class="brand col-sm-12 col-md-5 my-4 pt-4 text-light"/>
+      <BaseMySpace class="animate__animated animate__fadeIn my-space col-sm-12 col-md-5 text-light" />
+      <BaseBrand class="brand col-sm-12 col-md-5 my-4 pt-4 text-light"/>
     </main>
     <footer>
-      <Rights/>
+      <BaseRights/>
     </footer>
   </div>
 </template>

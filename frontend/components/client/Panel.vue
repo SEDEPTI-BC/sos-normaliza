@@ -210,7 +210,7 @@ export default {
   name: 'ClientPanel',
   data() {
     return {
-      darkModeDisabled: false,
+      darkModeDisabled: true,
     }
   }
 }

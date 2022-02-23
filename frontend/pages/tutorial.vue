@@ -1,16 +1,16 @@
 <template>
   <div class="index">
     <header>
-      <Navbar/>
+      <BaseNavbar/>
     </header>
     <main class="d-md-flex align-items-center justify-content-between px-4">
       <div class="col-sm-12 col-md-6 text-light">
-        <Tutorial class="animate__animated animate__fadeIn"/>
+        <BaseTutorial class="animate__animated animate__fadeIn"/>
       </div>
-      <Brand class="brand col-sm-12 col-md-5 my-4 pt-4 text-light"/>
+      <BaseBrand class="brand col-sm-12 col-md-5 my-4 pt-4 text-light"/>
     </main>
     <footer>
-      <Rights/>
+      <BaseRights/>
     </footer>
   </div>
 </template>
