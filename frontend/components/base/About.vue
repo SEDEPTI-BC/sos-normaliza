@@ -23,11 +23,12 @@ export default {
     scrollbar-width: none;
   }
 
-  h1 {
+  h1 { 
     font-size: 1.5rem;
+    color: var(--main-color);
   }
 
-  h2 {
-    font-size: 1.4rem;
-  }
+  h2 { font-size: 1.4rem; }
+
+  p { font-size: 1.3rem; }
 </style>

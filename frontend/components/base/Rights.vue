@@ -31,7 +31,8 @@ export default {
 
   @media screen and (max-width: 768px) {
     .wrapper-rights {
-      flex-direction: column !important;
+      /* flex-direction: column !important; */
+      justify-content: center;
       align-items: center;
    }
   }

@@ -1,7 +1,7 @@
 <template>
   <div class="contact">
     <article>
-      <h1>
+      <h1 class="nexa-bold">
         Entre em contato com os desenvolvedores
       </h1>
       <p>
@@ -24,3 +24,15 @@ export default {
   name: 'Contact',
 }
 </script>
+
+
+<style scoped>
+  h1 { 
+    font-size: 1.5rem;
+    color: var(--main-color);
+  }
+
+  h2 { font-size: 1.4rem; }
+
+  p { font-size: 1.2rem; }
+</style>
