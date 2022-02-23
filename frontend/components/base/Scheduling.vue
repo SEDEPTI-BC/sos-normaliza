@@ -1,8 +1,8 @@
 <template>
-  <div class="scheduling">
+  <div class="scheduling" @click="teste()">
     <div>
       <form id="scheduling">
-        <ul id="progressbar">
+        <ul id="progressbar" aria-hidden="true">
           <li class="active">Informações pessoais</li>
           <li :class="{active: institutionalActive}">Informações institucionais</li>
           <li :class="{active: schedulingActive}">Informações do agendamento</li>
@@ -17,27 +17,22 @@
           <input type="button" name="next" class="next action-button" value="Próximo" aria-label="Ir para o próximo passo" @click="toInstitutional()">
         </fieldset>
         <fieldset class="animate__animated animate__fadeInLeft" v-if="showInstitutional">
-          <h2 class="fs-title">Informações institucionais</h2>
+          <h2 class="fs-title nexa-bold">Informações institucionais</h2>
           <h3 class="fs-subtitle nexa-bold">Agora precisamos conferir se realmente você é um estudante da UFPA</h3>
           <select name="courseUser" v-model="courseUser">
             <option disabled selected>Selecione o seu curso</option>
-            <option>Sistemas de Informação</option>
-            <option>Engenharia da Computação</option>
-            <option>Ciência da Computação</option>
-            <option>Bibliotecnomia</option>
+            <option v-for="(course, index) in courses" :key="index" :value="course">{{ course }}</option>
           </select>
           <select name="campusUser" v-model="campusUser">
             <option disabled selected>Selecione o seu instituto ou campus</option>
-            <option>Instituto de Ciências Exatas e Naturais</option>
-            <option>Instituto de Tecnologia</option>
-            <option>Instituto de Ciências Sociais Aplicadas</option>
+            <option v-for="(unit, index) in units" :key="index" :value="unit">{{ unit }}</option>
           </select>
-          <input type="text" name="registryUser" placeholder="Informe o seu número de matrícula" aria-label="Informe o seu número de matrícula" v-model="registryUser">
+          <input type="text" name="registryUser" placeholder="Informe a sua matrícula" aria-label="Informe o seu número de matrícula" v-model="registryUser">
           <input type="button" name="previous" class="previous action-button-previous" value="Anterior" aria-label="Voltar para o passo anterior" @click="backToPersonal()">
           <input type="button" name="next" class="next action-button" value="Próximo" aria-label="Ir para o próximo passo" @click="toScheduling()">
         </fieldset>
         <fieldset class="animate__animated animate__fadeInLeft" v-if="showScheduling">
-          <h2 class="fs-title">Informações do agendamento </h2>
+          <h2 class="fs-title nexa-bold">Informações do agendamento </h2>
           <h3 class="fs-subtitle nexa-bold">Por fim, conte um pouco para nós sobre as suas dúvidas</h3>
           <textarea name="messageUser" cols="30" rows="3" placeholder="Deixe uma mensagem para que possamos entender melhor suas necessidades" v-model="messageUser"></textarea>
           <input type="button" name="previous" class="previous action-button-previous" value="Anterior" aria-label="Voltar para o passo anterior" @click="toInstitutional">
@@ -49,10 +44,15 @@
 </template>
 
 <script>
+import { courses } from '../../static/js/academic/courses';
+import { units } from '../../static/js/academic/units';
+
 export default {
   name: 'Scheduling',
   data() {
     return {
+      courses: courses,
+      units: units,
       nameUser: '',
       phoneUser: '',
       emailUser: '',
@@ -68,6 +68,9 @@ export default {
     }
   },
   methods: {
+    teste() {
+      console.log(this.courses)
+    },
     backToPersonal() {
       this.showPersonal = true;
       this.showInstitutional = false;
@@ -133,7 +136,7 @@ export default {
     width: 100%;
     box-sizing: border-box;
     color: rgb(44, 62, 80);
-    font-size: 13px;
+    font-size: 1rem !important;
   }
 
   #scheduling select {
@@ -191,7 +194,7 @@ export default {
   }
 
   .fs-title {
-    font-size: 18px;
+    font-size: 1.3rem;
     text-transform: uppercase;
     color: rgb(44, 62, 80);
     margin-bottom: 10px;
@@ -201,7 +204,7 @@ export default {
 
   .fs-subtitle {
     font-weight: normal;
-    font-size: 13px;
+    font-size: 1.2rem;
     color: rgb(102, 102, 102);
     margin-bottom: 20px;
   }
@@ -216,7 +219,7 @@ export default {
     list-style-type: none;
     color: rgb(255, 255, 255);
     text-transform: uppercase;
-    font-size: 9px;
+    font-size: 0.8rem;
     width: 33.33%;
     float: left;
     position: relative;
