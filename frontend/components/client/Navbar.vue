@@ -6,6 +6,7 @@
     <ul class="navbar-nav px-3">
       <li class="nav-item text-nowrap">
         <a class="btn nexa-bold" title="Sair do dashboard">
+          <span class="d-none">Notificações</span>
           <i class="fa fa-bell" aria-hidden="true"></i>
         </a>
         <a class="btn btn-danger nexa-bold" title="Sair do dashboard">

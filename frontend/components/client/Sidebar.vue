@@ -4,6 +4,7 @@
       <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted"  data-toggle="collapse" href="#contentId" aria-expanded="true" aria-controls="contentId">
         <span>Ações</span>
         <a class="d-flex align-items-center text-muted">
+          <span class="d-none">Ícone do usuário</span>
           <i class="fa fa-user" aria-hidden="true"></i>
         </a>
       </h6>
@@ -20,19 +21,9 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">
+            <NuxtLink class="nav-link" to="/agendamento">
               <i class="fa fa-plus-circle" aria-hidden="true"></i> Novo agendamento
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              <i class="fa fa-times" aria-hidden="true"></i> Cancelar agendamento
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              <i class="fa fa-clock-o" aria-hidden="true"></i> Remarcar agendamento
-            </a>
+            </NuxtLink>
           </li>
         </ul>
       </div>
@@ -40,6 +31,7 @@
       <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
         <span>Redes Sociais</span>
         <a class="d-flex align-items-center text-muted" href="#">
+          <span class="d-none">Ícone de compartilhamento</span>
           <i class="fa fa-share-alt" aria-hidden="true"></i>
         </a>
       </h6>
@@ -56,12 +48,12 @@
         </li>
       </ul>
       <div class="d-flex justify-content-center align-items-center dark-mode">
-        <i class="fa fa-sun-o mr-1" :class="{focus: !darkModeDisabled}" aria-hidden="true"></i>
+        <i class="fa fa-sun-o mr-1" :class="{focus: !darkModeEnabled}" aria-hidden="true"></i>
         <label class="switch mt-2">
-          <input type="checkbox" v-model="darkModeDisabled" @click="darkMode()">
+          <input type="checkbox" aria-label="Habilitar ou desabilitar modo escuro" v-model="darkModeEnabled" @click="darkMode()">
           <span class="slider round"></span>
         </label>
-        <i class="fa fa-moon-o ml-1" :class="{focus: darkModeDisabled}" aria-hidden="true"></i>
+        <i class="fa fa-moon-o ml-1" :class="{focus: darkModeEnabled}" aria-hidden="true"></i>
       </div>
     </div>
   </nav>
@@ -72,12 +64,12 @@ export default {
   name: 'ClientSidebar',
   data() {
     return {
-      darkModeDisabled: true,
+      darkModeEnabled: false,
     }
   },
   methods: {
     darkMode() {
-      if (this.darkModeDisabled == true) {
+      if (this.darkModeEnabled == true) {
         console.log('Inativo');
       } else {
         console.log('Ativo');
