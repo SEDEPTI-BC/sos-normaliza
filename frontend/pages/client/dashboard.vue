@@ -1,11 +1,11 @@
 <template>
   <div class="dashboard-client">
-    <ClientNavbar :class="{'client-navbar': true, 'navbar-dark': darkModeEnabled, 'navbar-light': !darkModeEnabled, 'bg-dark': darkModeEnabled, 'bg-light': !darkModeEnabled, 'text-light': darkModeEnabled, 'text-dark': !darkModeEnabled}" />
+    <ClientNavbar class="client-navbar navbar-light bg-light text-dark" />
     <div class="container-fluid">
       <div class="row">
-        <ClientSidebar :class="{'client-sidebar': true, 'position-fixed': true, 'bg-dark': darkModeEnabled, 'bg-light': !darkModeEnabled, 'text-light': darkModeEnabled, 'text-dark': !darkModeEnabled}" />
-        <main role="main" :class="{'col-md-12': true, 'ml-sm-auto': true, 'col-lg-9': true, 'col-xl-10': true, 'pt-3': true, 'px-4': true, 'bg-dark': darkModeEnabled, 'bg-light': !darkModeEnabled}">
-          <ClientPanel :class="{'text-light': darkModeEnabled, 'text-dark': !darkModeEnabled}" />
+        <ClientSidebar class="client-sidebar position-fixed bg-light text-dark" />
+        <main role="main" class="col-md-12 ml-sm-auto col-lg-9 col-xl-10 pt-3 px-4 bg-light">
+          <ClientPanel class="text-dark" />
         </main>
       </div>
     </div>
@@ -14,11 +14,7 @@
 
 <script>
 export default {
-  data() {
-    return {
-      darkModeEnabled: false,
-    }
-  }
+  
 }
 </script>
 

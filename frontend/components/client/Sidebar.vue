@@ -69,11 +69,7 @@ export default {
   },
   methods: {
     darkMode() {
-      if (this.darkModeEnabled == true) {
-        console.log('Inativo');
-      } else {
-        console.log('Ativo');
-      }
+      console.log(this.darkModeEnabled)
     }
   }
 }

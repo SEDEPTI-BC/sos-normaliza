@@ -6,7 +6,7 @@
 
     <h2>Agendamentos</h2>
     <div class="table-responsive">
-      <table :class="{'table': true, 'table-striped': true, 'table-sm': true, 'text-light': darkModeEnabled, 'text-dark': !darkModeEnabled}">
+      <table class="table table-striped table-sm text-dark">
         <thead>
           <tr>
             <th class="d-none d-lg-block">ID</th>
@@ -74,11 +74,6 @@
 <script>
 export default {
   name: 'ClientPanel',
-  data() {
-    return {
-      darkModeEnabled: false,
-    }
-  }
 }
 </script>
 
