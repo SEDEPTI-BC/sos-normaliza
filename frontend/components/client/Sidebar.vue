@@ -37,12 +37,12 @@
       </h6>
       <ul class="nav flex-column mb-2">
         <li class="nav-item">
-          <a class="nav-link" href="https://bc.ufpa.br/" target="_blank">
+          <a class="nav-link" href="https://bc.ufpa.br/" target="_blank" rel="noopener noreferrer">
             <i class="fa fa-book" aria-hidden="true"></i> Biblioteca Central
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="https://portal.ufpa.br/" target="_blank">
+          <a class="nav-link" href="https://portal.ufpa.br/" target="_blank" rel="noopener noreferrer">
             <i class="fa fa-university" aria-hidden="true"></i> Portal da UFPA
           </a>
         </li>
