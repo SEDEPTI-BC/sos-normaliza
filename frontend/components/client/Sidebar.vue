@@ -1,14 +1,14 @@
 <template>
-  <nav class="col-md-3 col-xl-2 d-none d-lg-block sidebar">
+  <nav class="col-md-3 col-xl-2 d-none d-lg-block sidebar" data-toggle="collapse" href="#sidebar" aria-expanded="true" aria-controls="sidebar">
     <div class="sidebar-sticky">
-      <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted"  data-toggle="collapse" href="#contentId" aria-expanded="true" aria-controls="contentId">
+      <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted" data-toggle="collapse" href="#userActions" aria-expanded="true" aria-controls="userActions">
         <span>Ações</span>
         <a class="d-flex align-items-center text-muted">
           <span class="d-none">Ícone do usuário</span>
           <i class="fa fa-user" aria-hidden="true"></i>
         </a>
       </h6>
-      <div class="collapse" id="contentId">
+      <div class="collapse" id="userActions">
         <ul class="nav flex-column">
           <li class="nav-item">
             <a class="nav-link active" href="#">
@@ -142,8 +142,6 @@ export default {
   .slider.round::before {
     border-radius: 50%;
   }
-
-  .dark-mode { font-size: 1rem; }
 
   .focus { color: var(--main-bg); }
 </style>
