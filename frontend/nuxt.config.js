@@ -34,6 +34,8 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
+    // { src: './node_modules/vuelidate/dist/vuelidate.min.js', ssr: true },
+    // { src: './node_modules/vuelidate/dist/validators.min.js', ssr: true },
     '@/static/js/main.js',
   ],
 

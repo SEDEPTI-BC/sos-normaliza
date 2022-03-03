@@ -69,7 +69,7 @@ export default {
   },
   methods: {
     darkMode() {
-      console.log(this.darkModeEnabled)
+      console.log(this.darkModeEnabled);
     }
   }
 }

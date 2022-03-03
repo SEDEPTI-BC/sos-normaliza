@@ -1,5 +1,5 @@
 <template>
-  <div class="scheduling" @click="teste()">
+  <div class="scheduling">
     <div>
       <form id="scheduling">
         <ul id="progressbar" aria-hidden="true">
@@ -44,11 +44,25 @@
 </template>
 
 <script>
+import useVuelidate from '../../node_modules/vuelidate/dist/vuelidate.min.js';
+import { required, email } from '../../node_modules/vuelidate/dist/validators.min.js';
 import { courses } from '../../static/js/academic/courses';
 import { units } from '../../static/js/academic/units';
 
 export default {
   name: 'Scheduling',
+  
+  validators() {
+    return {
+      nameUser: { required },
+      phoneUser : { required },
+      emailUser: { email },
+      courseUser: { required },
+      campusUser: { required },
+      registryUser: { required },
+      messageUser: { required },
+    }
+  },
   data() {
     return {
       courses: courses,
@@ -68,9 +82,6 @@ export default {
     }
   },
   methods: {
-    teste() {
-      console.log(this.courses)
-    },
     backToPersonal() {
       this.showPersonal = true;
       this.showInstitutional = false;
