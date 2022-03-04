@@ -1,4 +1,5 @@
 const { Router } = require('express');
+
 const doubtsRoutes = require('./doubts.routes');
 const timeRoutes = require('./time.routes');
 
