@@ -14,7 +14,7 @@ module.exports = (sequelize, DataTypes) => {
   }
   LibrarianSchedule.init(
     {
-      usuario_id: DataTypes.INTEGER,
+      user_id: DataTypes.INTEGER,
       time_id: DataTypes.INTEGER,
     },
     {
