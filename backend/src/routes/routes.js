@@ -1,15 +1,17 @@
-const { Router } = require('express');
+const { Router } = require("express");
 
-const doubtsRoutes = require('./doubts.routes');
-const timeRoutes = require('./time.routes');
+const timeRoutes = require("./time.routes");
+const userRoutes = require("./users.routes");
 
 const routes = Router();
 
-routes.get('/', (req, res, next) => res.json({ 
-  status: "API working",
-}));
+routes.get("/", (req, res, next) =>
+  res.json({
+    status: "API working",
+  })
+);
 
-routes.use(doubtsRoutes);
 routes.use(timeRoutes);
+routes.use(userRoutes);
 
 module.exports = routes;

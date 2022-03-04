@@ -13,6 +13,7 @@ module.exports = {
     database: db_name,
     host: db_host,
     dialect: db_dialect,
+    loggin: false,
   },
   test: {
     username: "root",
