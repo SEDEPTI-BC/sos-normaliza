@@ -1,4 +1,8 @@
-# JavaScript Standard Style
+# Regras de estilo
+
+> No projeto, tentamos ao máximo seguir o Javascript Rules Standard desenvolido pelo Github, sinta-se a vontade para ler na íntegra antes de começar a codar
+
+## JavaScript Standard Style
 
 [![js-standard-style](https://cdn.rawgit.com/standard/standard/master/badge.svg)](https://github.com/standard/standard)
 
