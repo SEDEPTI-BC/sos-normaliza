@@ -23,7 +23,6 @@ class UserController {
   }
 
   static async getAllLibrarians(req, res) {
-    const { librarianId } = req.params;
     try {
       const allLibrarians = await UserRepository.getAllLibrarians();
 

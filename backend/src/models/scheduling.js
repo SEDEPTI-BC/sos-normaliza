@@ -9,17 +9,28 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      Scheduling.hasMany(models.SchedulingQuestions);
-      Scheduling.belongsTo(models.User);
-      Scheduling.belongsTo(models.Time);
+      Scheduling.hasMany(models.SchedulingQuestions, {
+        foreignKey: "scheduling_id",
+      });
+      Scheduling.belongsTo(models.User, {
+        foreignKey: "user_id",
+      });
+      Scheduling.belongsTo(models.Time, {
+        foreignKey: "time_id",
+      });
     }
   }
   Scheduling.init(
     {
-      type: DataTypes.STRING,
+      type: DataTypes.ENUM("PRESENCIAL", "ONLINE"),
       time_id: DataTypes.INTEGER,
       user_id: DataTypes.INTEGER,
-      status: DataTypes.STRING,
+      status: DataTypes.ENUM(
+        "PENDENTE",
+        "CONFIRMADO",
+        "CANCELADO",
+        "CONCLUIDO"
+      ),
       requester_name: DataTypes.STRING,
       requester_email: DataTypes.STRING,
       appointment_day: DataTypes.DATEONLY,

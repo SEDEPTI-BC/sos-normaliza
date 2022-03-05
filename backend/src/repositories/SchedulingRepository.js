@@ -1,5 +1,6 @@
 const database = require("../models");
 const crypto = require("crypto");
+const librarianRotation = require("../services/scheduling/librarianRotation");
 
 function generateToken() {
   const hexToken = crypto.randomBytes(2).toString("Hex");
@@ -8,29 +9,25 @@ function generateToken() {
 
 class SchedulingRepository {
   static async create(data) {
-    const { appointmentDay, timeId } = data;
+    const { time_id } = data;
 
     const token = generateToken();
 
-    const librarianId = await librarianRotation(appointmentDay, timeId);
+    const librarianId = await librarianRotation(time_id);
 
-    // const repositoryData = {
-    //   dia,
-    //   usuarioId: usuarioId,
-    //   horarioId,
-    //   duvidaId,
-    //   solicitanteNome,
-    //   solicitanteEmail,
-    //   token,
-    // };
+    const newSchedulingData = { ...data, token, user_id: librarianId };
 
-    // await AgendamentosRepository.criar(repositoryData);
     try {
-      const newUserCreated = await database.Scheduling.create(data);
-      return newUserCreated;
+      const newScheduling = await database.Scheduling.create(newSchedulingData);
+      return newScheduling;
     } catch {
       throw new Error("Não foi possivel criar um agendamento.");
     }
+  }
+
+  static async getAllSchedulings() {
+    const allSchedulings = await database.Scheduling.findAll();
+    return allSchedulings;
   }
 }
 

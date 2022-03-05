@@ -9,8 +9,9 @@ module.exports = {
         type: Sequelize.INTEGER,
       },
       type: {
-        type: Sequelize.STRING,
-        allowNull: false,
+        type: Sequelize.ENUM,
+        values: ["PRESENCIAL", "ONLINE"],
+        defaultValue: "PRESENCIAL",
       },
       time_id: {
         type: Sequelize.INTEGER,
@@ -29,8 +30,9 @@ module.exports = {
         },
       },
       status: {
-        type: Sequelize.STRING,
-        allowNull: false,
+        type: Sequelize.ENUM,
+        values: ["PENDENTE", "CONFIRMADO", "CANCELADO", "CONCLUIDO"],
+        defaultValue: "PENDENTE",
       },
       requester_name: {
         type: Sequelize.STRING,

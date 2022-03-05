@@ -9,7 +9,9 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      LibrarianSchedule.belongsTo(models.User);
+      LibrarianSchedule.belongsTo(models.User, {
+        foreignKey: "user_id",
+      });
     }
   }
   LibrarianSchedule.init(
