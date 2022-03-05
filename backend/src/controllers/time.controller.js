@@ -1,27 +1,18 @@
 const TimeRepository = require('../repositories/time.repository');
 
 class TimeController {
-  async index (req, res, next) {
+  /**
+   * Método index
+   * 
+   * @param {Objeto da requisição} req Dados obtidos pela requisição do cliente
+   * @param {Objeto da resposta} res Dados a serem retornados pelo servidor
+   * @param {Objeto da solicitação do middleware} next Controla as solicitações dos pŕoximos middlewares da cadeia
+   * @returns Retorna todos os agendamentos, o status HTTP da requisição e um JSON com o estado da requisição
+   * 
+   * @author Gabriel Santos Cardoso
+   */
+  static async index (req, res, next) {
     res.json({ status: 'Endpoint available', endpoint: '/horarios/' });
-  }
-
-  async create (req, res, next) {
-    const { hour } = request.body;
-
-    try {
-      await TimeRepository.create({ hour });
-
-      return res
-        .status(201)
-        .json({ message: 'Hour registered in database'});
-    } catch (e) {
-      return res
-        .status(400)
-        .json({
-          message: 'An unexpected error occurred during registry hour',
-          log: '`${e}`'
-        });
-    }
   }
 }
 

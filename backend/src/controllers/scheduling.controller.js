@@ -1,7 +1,17 @@
 const SchedulingRepository = require("../repositories/SchedulingRepository");
 
 class SchedulingController {
-  static async create(req, res) {
+  /**
+   * Método responsável por criar um novo agendamento no banco de dados
+   * 
+   * @param {Objeto da requisição} req Dados obtidos pela requisição do cliente
+   * @param {Objeto da resposta} res Dados a serem retornados pelo servidor
+   * @param {Objeto da solicitação do middleware} next Controla as solicitações dos pŕoximos middlewares da cadeia
+   * @returns Retorna a criação ou não de um novo agendamento, o status HTTP da requisição e um JSON com o estado da requisição
+   * 
+   * @author Samantha Luiza Athayde Silva
+   */
+  static async create(req, res, next) {
     const data = req.body;
     try {
       const newScheduleCreated = await SchedulingRepository.create(data);
@@ -15,6 +25,16 @@ class SchedulingController {
     }
   }
 
+  /**
+   * Método responsável por retornar todos os agendamentos de um determinado usuário
+   * 
+   * @param {Objeto da requisição} req Dados obtidos pela requisição do cliente
+   * @param {Objeto da resposta} res Dados a serem retornados pelo servidor
+   * @param {Objeto da solicitação do middleware} next Controla as solicitações dos pŕoximos middlewares da cadeia
+   * @returns Retorna todos os agendamentos, o status HTTP da requisição e um JSON com o estado da requisição
+   * 
+   * @author Samantha Luiza Athayde Silva
+   */
   static async getAllSchedulings(req, res) {
     try {
       const allSchedulings = await SchedulingRepository.getAllSchedulings();
