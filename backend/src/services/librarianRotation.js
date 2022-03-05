@@ -1,5 +1,5 @@
-const UserRepository = require("../repositories/UserRepository");
-const LibrarianScheduleRepository = require("../repositories/LibrarianScheduleRepository");
+const UserRepository = require("../repositories/user.repository");
+const LibrarianScheduleRepository = require("../repositories/librarianSchedule.repository");
 
 async function librarianRotation(appointmentDay, timeId) {
   // const allLibrarians = UserRepository.getAllLibrarians()

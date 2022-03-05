@@ -6,9 +6,13 @@ class UserController {
 
     try {
       const newUserCreated = await UserRepository.create(data);
-      return res.status(201).json(newUserCreated);
+      return res
+        .status(201)
+        .json(newUserCreated);
     } catch (error) {
-      return res.status(500).json({ message: error.message });
+      return res
+        .status(500)
+        .json({ message: error.message });
     }
   }
 
@@ -16,9 +20,13 @@ class UserController {
     try {
       const allUsers = await UserRepository.getAllUsers();
 
-      return res.status(200).json(allUsers);
+      return res
+        .status(200)
+        .json(allUsers);
     } catch (error) {
-      return res.status(500).json({ message: error.message });
+      return res
+        .status(500)
+        .json({ message: error.message });
     }
   }
 
@@ -27,9 +35,13 @@ class UserController {
     try {
       const allLibrarians = await UserRepository.getAllLibrarians();
 
-      return res.status(200).json(allLibrarians);
+      return res
+        .status(200)
+        .json(allLibrarians);
     } catch (error) {
-      return res.status(500).json({ message: error.message });
+      return res
+        .status(500)
+        .json({ message: error.message });
     }
   }
 }
