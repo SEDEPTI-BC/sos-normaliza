@@ -1,4 +1,4 @@
-const UserRepository = require("../repositories/UserRepository");
+const UserRepository = require("../repositories/user.repository");
 
 class UserController {
   static async create(req, res) {

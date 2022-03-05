@@ -1,7 +1,7 @@
 const { Router } = require('express');
 const timeRoutes = Router();
-const timeController = require('../controllers/time.controller');
+const TimeController = require('../controllers/time.controller');
 
-timeRoutes.get('/horarios', timeController.index);
+timeRoutes.get('/horarios', TimeController.index);
 
 module.exports = timeRoutes;
