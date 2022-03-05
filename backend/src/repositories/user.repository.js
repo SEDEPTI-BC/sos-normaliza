@@ -30,16 +30,43 @@ class UserRepository {
     }
   }
 
-  static async getAllLibrarians(librarianId) {
+  static async getAllLibrarians() {
     try {
       const allLibrarians = await database.User.findAll({
         where: {
-          id: librarianId,
+          role: "LIBRARIAN",
         },
       });
       return allLibrarians;
     } catch {
       throw new Error("Não foi possivel retornar bibliotecarios");
+    }
+  }
+
+  static async getLibrariansBySchedulingAmount() {
+    try {
+      const librarians = await database.User.findAll({
+        where: {
+          role: "LIBRARIAN",
+        },
+        attributes: {
+          include: [
+            [
+              database.sequelize.literal(`(
+                SELECT COUNT(*)
+                FROM Schedulings AS Scheduling
+                WHERE
+                  Scheduling.user_id = User.id
+              )`),
+              "SchedulingCount",
+            ],
+          ],
+        },
+        order: [[database.sequelize.literal("SchedulingCount"), "ASC"]],
+      });
+      return librarians;
+    } catch (error) {
+      throw new Error(error);
     }
   }
 }

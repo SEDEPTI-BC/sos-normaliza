@@ -9,8 +9,12 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      Time.hasMany(models.Scheduling);
-      Time.hasMany(models.LibrarianSchedule);
+      Time.hasMany(models.Scheduling, {
+        foreignKey: "time_id",
+      });
+      Time.hasMany(models.LibrarianSchedule, {
+        foreignKey: "time_id",
+      });
     }
   }
   Time.init(

@@ -1,7 +1,9 @@
 const { Router } = require("express");
+const SchedulingController = require("../controllers/scheduling.controller");
 
 const schedulingsRoutes = Router();
 
-schedulingsRoutes.get("scheduling");
+schedulingsRoutes.get("/schedulings", SchedulingController.getAllSchedulings);
+schedulingsRoutes.post("/schedulings", SchedulingController.create);
 
 module.exports = schedulingsRoutes;
