@@ -16,4 +16,4 @@ class TimeController {
   }
 }
 
-module.exports = new TimeController;
+module.exports = TimeController;

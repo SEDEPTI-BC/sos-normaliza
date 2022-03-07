@@ -14,16 +14,16 @@ class DoubtController {
     res.json({ status: 'Endpoint available', endpoint: '/duvidas/' });
   }
 
-    /**
-     * Método para criação de uma dúvida
-     * 
-     * @param {Objeto da requisição} req Dados retornados pela requireção
-     * @param {Objeto da resposta} res Dados a serem retornados pelo servidor
-     * @param {Objeto de solicitação de middleware} next Controla as solicitações dos próximos middlewares da cadeia
-     * @returns O status HTTP da requisição e um JSON contento uma mensagem de estado
-     * 
-     * @author Gabriel Santos Cardoso
-     */
+  /**
+   * Método para criação de uma dúvida
+   * 
+   * @param {Objeto da requisição} req Dados retornados pela requireção
+   * @param {Objeto da resposta} res Dados a serem retornados pelo servidor
+   * @param {Objeto de solicitação de middleware} next Controla as solicitações dos próximos middlewares da cadeia
+   * @returns O status HTTP da requisição e um JSON contento uma mensagem de estado
+   * 
+   * @author Gabriel Santos Cardoso
+   */
   static async create (req, res, next) {
     const { title } = req.body;
 
@@ -44,4 +44,4 @@ class DoubtController {
   }
 }
 
-module.exports = new DoubtController;
+module.exports = DoubtController;
