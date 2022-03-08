@@ -1,11 +1,9 @@
-const UserRepository = require("../../repositories/user.repository");
-const LibrarianScheduleRepository = require("../../repositories/librarianSchedule.repository");
+const UserRepository = require('../../repositories/user.repository');
+const LibrarianScheduleRepository = require('../../repositories/librarianSchedule.repository');
 
 async function librarianRotation(timeId) {
   const librariansOrderedBySchedulingAmount =
     await UserRepository.getLibrariansBySchedulingAmount();
-
-  let chosenLibrarian;
 
   for (let i = 0; i < librariansOrderedBySchedulingAmount.length; i++) {
     const librarianAvailable = LibrarianScheduleRepository.checkAvailability(
@@ -14,11 +12,11 @@ async function librarianRotation(timeId) {
     );
 
     if (librarianAvailable) {
-      chosenLibrarian = librariansOrderedBySchedulingAmount[i];
-      break;
+      return librariansOrderedBySchedulingAmount[i];
     }
   }
-  return chosenLibrarian.id;
+  // couldn't find any librarian available
+  return null;
 }
 
 module.exports = librarianRotation;
