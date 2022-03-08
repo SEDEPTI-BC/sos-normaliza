@@ -14,6 +14,7 @@
             <th>Data</th>
             <th>Bibliotecário</th>
             <th>Ações</th>
+            <th>Status</th>
           </tr>
         </thead>
         <tbody>
@@ -40,6 +41,7 @@
                 </button>
               </div>
             </td>
+            <td>Pendente</td>
           </tr>
           <tr>
             <td class="d-none d-lg-block">
@@ -64,6 +66,7 @@
                 </button>
               </div>
             </td>
+            <td>Pendente</td>
           </tr>
         </tbody>
       </table>

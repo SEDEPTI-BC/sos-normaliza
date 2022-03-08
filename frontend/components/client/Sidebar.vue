@@ -1,5 +1,5 @@
 <template>
-  <nav class="col-md-3 col-xl-2 d-none d-lg-block sidebar" data-toggle="collapse" href="#sidebar" aria-expanded="true" aria-controls="sidebar">
+  <nav class="col-md-3 col-xl-2 d-none d-lg-block collapse navbar-collapse sidebar" data-toggle="collapse" href="#sidebar" aria-expanded="true" aria-controls="sidebar">
     <div class="sidebar-sticky">
       <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted" data-toggle="collapse" href="#userActions" aria-expanded="true" aria-controls="userActions">
         <span>Ações</span>

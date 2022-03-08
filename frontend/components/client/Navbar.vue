@@ -36,7 +36,7 @@ export default {
   methods: {
     activeSidebar() {
       let sidebar = this.hiddenSidebar;
-      this.$nuxt.$emit('showSidebar', { sidebar });
+      this.$emit('showSidebar', sidebar);
       console.log('Emitindo evento')
     }
   }

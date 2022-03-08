@@ -20,15 +20,6 @@ export default {
       hiddenSidebar: true
     }
   },
-  created() {
-    this.$nuxt.$on('showSidebar', function ($event) {
-      if ($event == true) {
-        this.hiddenSidebar = false;
-      } else {
-        this.hiddenSidebar = true;
-      }
-    })
-  },
   methods: {
     showSidebar($event) {
       if ($event == true) {
