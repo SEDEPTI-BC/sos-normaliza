@@ -12,7 +12,7 @@ class SchedulingRepository {
    * Método para a criação de um novo agendamento no banco de dados.
    *
    * @param {Objeto de inscrição} data Objeto contendo os dados passados pelo usuário para um agendamento
-   * @returns Retornar uma promise e um novo agendamento
+   * @returns Retorna uma promise e um novo agendamento
    *
    * @author Samantha Luiza Athayde Silva
    */
@@ -48,6 +48,35 @@ class SchedulingRepository {
     const allSchedulings = await database.Scheduling.findAll();
     return allSchedulings;
   }
+
+  /**
+   * Método para listar um agendamento
+   *
+   * NOTA 1: não utilizar esse método para fins que não envolvam especificamente o usuário administrador
+   *
+   * @param {String} id Identificador do agendamento
+   *
+   * @returns Retorna uma promise contendo o agendamento especificado pelo id
+   *
+   * @author Samantha Luiza Athayde Silva
+   */
+  static async getScheduling(id) {
+    const scheduling = await database.Scheduling.findOne({
+      where: { id: +id },
+    });
+
+    return scheduling;
+  }
+
+  /**
+   *
+   * @param {String} id Indentificador do agendamento
+   *
+   * @returns Retorna null ou gera um erro
+   *
+   * @author Samantha Luiza Athayde Silva
+   */
+  static async confirmScheduling(id) {}
 }
 
 module.exports = SchedulingRepository;

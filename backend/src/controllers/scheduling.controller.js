@@ -39,6 +39,17 @@ class SchedulingController {
       return res.status(500).json({ message: error.message });
     }
   }
+
+  static async getScheduling(req, res) {
+    const { id } = req.params;
+
+    try {
+      const scheduling = await SchedulingRepository.getScheduling(id);
+      return res.status(200).json(scheduling);
+    } catch (error) {
+      return res.status(500).json({ message: error.meesage });
+    }
+  }
 }
 
 module.exports = SchedulingController;
