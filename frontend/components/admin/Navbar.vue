@@ -27,7 +27,7 @@
 
 <script>
 export default {
-  name: 'ClientNavbar',
+  name: 'AdminNavbar',
   data() {
     return {
       hiddenSidebar: true

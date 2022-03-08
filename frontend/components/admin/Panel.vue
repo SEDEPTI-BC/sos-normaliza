@@ -76,7 +76,7 @@
 
 <script>
 export default {
-  name: 'ClientPanel',
+  name: 'AdminPanel',
 }
 </script>
 

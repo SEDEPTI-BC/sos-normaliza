@@ -16,6 +16,16 @@
             </a>
           </li>
           <li class="nav-item">
+            <a class="nav-link active" href="#">
+              <i class="fa fa-line-chart" aria-hidden="true"></i> Estatísticas
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="#">
+              <i class="fa fa-clock-o" aria-hidden="true"></i> Horários
+            </a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link" href="#">
               <i class="fa fa-calendar" aria-hidden="true"></i> Agendamentos
             </a>
@@ -24,6 +34,16 @@
             <NuxtLink class="nav-link" to="/agendamento">
               <i class="fa fa-plus-circle" aria-hidden="true"></i> Novo agendamento
             </NuxtLink>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="#">
+              <i class="fa fa-user-plus" aria-hidden="true"></i> Cadastrar bibliotecário
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="#">
+              <i class="fa fa-tasks" aria-hidden="true"></i> Pedidos de férias
+            </a>
           </li>
         </ul>
       </div>
@@ -61,7 +81,7 @@
 
 <script>
 export default {
-  name: 'ClientSidebar',
+  name: 'AdminSidebar',
   data() {
     return {
       darkModeEnabled: false,

@@ -14,7 +14,6 @@
             <th>Data</th>
             <th>Bibliotecário</th>
             <th>Ações</th>
-            <th>Status</th>
           </tr>
         </thead>
         <tbody>
@@ -33,15 +32,14 @@
             </td>
             <td>
               <div class="buttons options">
-                <button class="btn btn-warning">
-                  <i class="fa fa-pencil text-light" aria-hidden="true"></i>
+                <button class="btn btn-success">
+                  <i class="fa fa-check text-light" aria-hidden="true"></i>
                 </button>
                 <button class="btn btn-danger">
                   <i class="fa fa-trash" aria-hidden="true"></i>
                 </button>
               </div>
             </td>
-            <td>Pendente</td>
           </tr>
           <tr>
             <td class="d-none d-lg-block">
@@ -58,15 +56,14 @@
             </td>
             <td>
               <div class="buttons options">
-                <button class="btn btn-warning">
-                  <i class="fa fa-pencil text-light" aria-hidden="true"></i>
+                <button class="btn btn-success">
+                  <i class="fa fa-check text-light" aria-hidden="true"></i>
                 </button>
                 <button class="btn btn-danger">
                   <i class="fa fa-trash" aria-hidden="true"></i>
                 </button>
               </div>
             </td>
-            <td>Pendente</td>
           </tr>
         </tbody>
       </table>
@@ -76,7 +73,7 @@
 
 <script>
 export default {
-  name: 'ClientPanel',
+  name: 'LibrarianPanel',
 }
 </script>
 

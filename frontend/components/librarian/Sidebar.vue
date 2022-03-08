@@ -25,6 +25,16 @@
               <i class="fa fa-plus-circle" aria-hidden="true"></i> Novo agendamento
             </NuxtLink>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <i class="fa fa-clock-o" aria-hidden="true"></i> Horários
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <i class="fa fa-tasks" aria-hidden="true"></i> Solicitar férias
+            </a>
+          </li>
         </ul>
       </div>
 
@@ -61,7 +71,7 @@
 
 <script>
 export default {
-  name: 'ClientSidebar',
+  name: 'LibrarianSidebar',
   data() {
     return {
       darkModeEnabled: false,
