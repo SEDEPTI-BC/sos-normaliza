@@ -12,7 +12,7 @@ module.exports = {
         status: 'PENDENTE',
         requester_name: 'Lucas Silva',
         requester_email: 'lucas@email.com',
-        appointment_day: new Date(2022, 5, 9), // 09/05/2022 -> seg
+        appointment_day: new Date('2022-05-09'), // 09/05/2022 -> seg
         token: '4fe4',
         createdAt: new Date(),
         updatedAt: new Date(),
@@ -26,7 +26,7 @@ module.exports = {
         status: 'PENDENTE',
         requester_name: 'Mark Grayson',
         requester_email: 'markg@email.com',
-        appointment_day: new Date(2022, 5, 10), // 09/05/2022 -> ter
+        appointment_day: new Date('2022-05-10'), // 09/05/2022 -> ter
         token: '28ca',
         createdAt: new Date(),
         updatedAt: new Date(),

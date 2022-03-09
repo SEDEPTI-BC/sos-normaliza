@@ -22,7 +22,7 @@ class SchedulingController {
   }
 
   /**
-   * Método responsável por retornar todos os agendamentos de um determinado usuário
+   * Método responsável por retornar todos os agendamentos
    *
    * @param {Objeto da requisição} req Dados obtidos pela requisição do cliente
    * @param {Objeto da resposta} res Dados a serem retornados pelo servidor
@@ -36,10 +36,19 @@ class SchedulingController {
       const allSchedulings = await SchedulingRepository.getAllSchedulings();
       return res.status(200).json(allSchedulings);
     } catch (error) {
-      return res.status(500).json({ message: error.message });
+      return res.status(500).json({ error: error.message });
     }
   }
 
+  /**
+   * Método responsável por retornar um agendamento especificado por id
+   *
+   * @param {Objeto da requisição} req Dados obtidos pela requisição do cliente
+   * @param {Objeto da resposta} res Dados a serem retornados pelo servidor
+   * @returns Retorna um agendamento caso a operação seja bem sucedida, do contrário, retorna uma mensagem de erro
+   *
+   * @author Samantha Luiza Athayde Silva
+   */
   static async getScheduling(req, res) {
     const { id } = req.params;
 
@@ -47,7 +56,73 @@ class SchedulingController {
       const scheduling = await SchedulingRepository.getScheduling(id);
       return res.status(200).json(scheduling);
     } catch (error) {
-      return res.status(500).json({ message: error.meesage });
+      return res.status(500).json({ error: error.meesage });
+    }
+  }
+
+  /**
+   * Método responsável por confirmar um agendamento
+   *
+   * @param {Objeto da requisição} req Dados obtidos pela requisição do cliente
+   * @param {Objeto da resposta} res Dados a serem retornados pelo servidor
+   * @returns Retorna um objeto contendo uma mensagem de sucesso ou uma mensagem de erro.
+   *
+   * @author Samantha Luiza Athayde Silva
+   */
+  static async confirmScheduling(req, res) {
+    const { id } = req.params;
+
+    try {
+      await SchedulingRepository.confirmScheduling(id);
+      return res
+        .status(200)
+        .json({ msg: `agendamento de id #${id} confirmado com sucesso.` });
+    } catch (error) {
+      return res.status(500).json({ error: error.meesage });
+    }
+  }
+
+  /**
+   * Método responsável por concluir um atendimento/agendamento
+   *
+   * @param {Objeto} req Dados obtidos pela requisição do cliente
+   * @param {Objeto} res Dados a serem retornados pelo servidor
+   * @returns Retorna um objeto contendo uma mensagem de sucesso ou uma mensagem de erro.
+   *
+   * @author Samantha Luiza Athayde Silva
+   */
+  static async finalizeAppointment(req, res) {
+    const { token } = req.params;
+
+    try {
+      await SchedulingRepository.finalizeAppointment(token);
+      return res
+        .status(200)
+        .json({ msg: `agendamento de token #${token} concluido.` });
+    } catch (error) {
+      return res.status(500).json({ error: error.message });
+    }
+  }
+
+  /**
+   * Método responsável por cancelar um atendimento/agendamento
+   *
+   * @param {Objeto} req Dados obtidos pela requisição do cliente
+   * @param {Objeto} res Dados a serem retornados pelo servidor
+   * @returns Retorna um objeto contendo uma mensagem de sucesso ou uma mensagem de erro.
+   *
+   * @author Samantha Luiza Athayde Silva
+   */
+  static async cancelAppointment(req, res) {
+    const { id } = req.params;
+
+    try {
+      await SchedulingRepository.cancelScheduling(id);
+      return res
+        .status(200)
+        .json({ msg: `agendamento de id #${id} cancelado.` });
+    } catch (error) {
+      return res.status(500).json({ error: error.message });
     }
   }
 }
