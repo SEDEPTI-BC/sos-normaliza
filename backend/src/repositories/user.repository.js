@@ -48,6 +48,50 @@ class UserRepository {
   }
 
   /**
+   * Método para retornar um usuário por email
+   *
+   * @param {string} email Email do usuário
+   *
+   * @returns Uma promise contendo um usuário ou gera um erro
+   *
+   * @author Samantha Luiza Athayde Silva
+   */
+  static async getUserByEmail(email) {
+    const user = await database.User.scope('auth').findOne({
+      where: { email },
+    });
+
+    if (!user) {
+      throw new Error(
+        'não foi possivel encontrar um usuário com o email especificado'
+      );
+    } else {
+      return user;
+    }
+  }
+
+  /**
+   * Método para retornar um usuário por id
+   *
+   * @param {int} id Identificador do usuário
+   *
+   * @returns Uma promise contendo um usuário ou gera um erro
+   *
+   * @author Samantha Luiza Athayde Silva
+   */
+  static async getUserById(id) {
+    const user = await database.User.findOne({ where: { id: +id } });
+
+    if (!user) {
+      throw new Error(
+        'não foi possivel encontrar um usuário com o id especificado'
+      );
+    } else {
+      return user;
+    }
+  }
+
+  /**
    * Método para listar todos os bibliotecários
    *
    * NOTA 1: não utilizar esse método para qualquer outro fim que não envolva o usuário administrador
