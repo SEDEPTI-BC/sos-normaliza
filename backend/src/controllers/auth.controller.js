@@ -19,7 +19,7 @@ class AuthController {
 
     // returns token in response headers, specifically the Authorization header
     res.set('Authorization', token);
-    return res.status(204).json({ msg: 'usuário logado com sucesso' });
+    return res.status(204).send();
   }
 
   static async logout(req, res) {
