@@ -47,7 +47,7 @@ passport.use(
     try {
       const payload = jwt.verify(token, process.env.JWT_SECRET_PASSWORD);
       const user = await UserRepository.getUserById(payload.id);
-      return done(null, user);
+      return done(null, user, { token });
     } catch (error) {
       return done(error);
     }
