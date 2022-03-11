@@ -5,7 +5,7 @@ const bcrypt = require('bcrypt');
 const LocalStrategy = require('passport-local').Strategy;
 const BearerStrategy = require('passport-http-bearer').Strategy;
 const UserRepository = require('../../repositories/user.repository');
-const blacklist = require('../../../redis/handle-blacklist');
+const denylistAccessToken = require('../../../redis/denylist-access-token');
 
 function verifyUser(user) {
   if (!user) {
@@ -15,10 +15,10 @@ function verifyUser(user) {
   }
 }
 
-async function verifyTokenInBlacklist(token) {
-  const tokenInBlacklist = await blacklist.hasToken(token);
+async function verifyTokenInDenylistAccessToken(token) {
+  const tokenInDenylistAccessToken = await denylistAccessToken.hasToken(token);
 
-  if (tokenInBlacklist) {
+  if (tokenInDenylistAccessToken) {
     throw new jwt.JsonWebTokenError('token invalidaded by logout');
   }
 }
@@ -54,7 +54,7 @@ passport.use(
 passport.use(
   new BearerStrategy(async (token, done) => {
     try {
-      await verifyTokenInBlacklist(token);
+      await verifyTokenInDenylistAccessToken(token);
       const payload = jwt.verify(token, process.env.JWT_SECRET_PASSWORD);
       const user = await UserRepository.getUserById(payload.id);
       return done(null, user, { token });

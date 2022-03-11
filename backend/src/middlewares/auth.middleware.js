@@ -1,4 +1,5 @@
 const passport = require('passport');
+const UserRepository = require('../repositories/user.repository');
 
 function localAuth(req, res, next) {
   passport.authenticate('local', { session: false }, (error, user, info) => {
@@ -49,4 +50,13 @@ function bearerAuth(req, res, next) {
   })(req, res, next);
 }
 
-module.exports = { localAuth, bearerAuth };
+function refreshToken(req, res, next) {
+  const { refreshToken } = req.body;
+
+  const userId = await verifyRefreshToken(refreshToken);
+  await invalidRefreshToken(refreshToken);
+
+  req.user = UserRepository.getUserById(userId);
+}
+
+module.exports = { localAuth, bearerAuth, refreshToken };
