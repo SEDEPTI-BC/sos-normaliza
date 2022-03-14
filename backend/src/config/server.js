@@ -9,6 +9,7 @@ app.use(cors());
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+
 require('../../redis/denylist-access-token').connect();
 require('../../redis/allowlist-refresh-token').connect();
 

@@ -1,39 +1,11 @@
-const jwt = require('jsonwebtoken');
-const crypto = require('crypto');
-const moment = require('moment');
 const denylistAccessToken = require('../../redis/denylist-access-token');
-const allowlistRefreshToken = require('../../redis/allowlist-refresh-token');
-
-function createTokenJWT(user) {
-  const payload = {
-    id: user.id,
-  };
-
-  const token = jwt.sign(payload, process.env.JWT_SECRET_PASSWORD, {
-    expiresIn: '15m',
-  });
-
-  return token;
-}
-
-/**
- * Função para gerar um refresh token
- *
- * @returns string de numeros hexadecimais aleatórios
- */
-async function createOpaqueToken(user) {
-  const opaqueToken = crypto.randomBytes(24).toString('hex');
-  const expirationDate = moment().add('5', 'd').unix();
-  await allowlistRefreshToken.add(opaqueToken, user.id, expirationDate);
-
-  return opaqueToken;
-}
+const tokens = require('../services/auth/tokens');
 
 class AuthController {
   static async login(req, res) {
     try {
-      const accessToken = createTokenJWT(req.user);
-      const refreshToken = await createOpaqueToken(req.user);
+      const accessToken = tokens.access.create(req.user.id);
+      const refreshToken = await tokens.refresh.create(req.user.id);
 
       // returns token in response headers, specifically the Authorization header
       res.set('Authorization', accessToken);

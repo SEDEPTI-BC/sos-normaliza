@@ -1,4 +1,5 @@
 const passport = require('passport');
+const tokens = require('../services/auth/tokens');
 const UserRepository = require('../repositories/user.repository');
 
 function localAuth(req, res, next) {
@@ -50,13 +51,23 @@ function bearerAuth(req, res, next) {
   })(req, res, next);
 }
 
-function refreshToken(req, res, next) {
-  const { refreshToken } = req.body;
+async function refreshToken(req, res, next) {
+  try {
+    const { refreshToken } = req.body;
 
-  const userId = await verifyRefreshToken(refreshToken);
-  await invalidRefreshToken(refreshToken);
+    const userId = await tokens.refresh.verify(refreshToken);
+    await invalidateRefreshToken(refreshToken);
 
-  req.user = UserRepository.getUserById(userId);
+    req.user = await UserRepository.getUserById(+userId);
+
+    return next();
+  } catch (error) {
+    if (error.name === 'InvalidArgumentError') {
+      return res.status(401).json({ error: error.message });
+    }
+
+    return res.status(500).json({ error: error.message });
+  }
 }
 
 module.exports = { localAuth, bearerAuth, refreshToken };
