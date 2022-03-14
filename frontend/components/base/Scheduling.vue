@@ -35,8 +35,9 @@
           <h2 class="fs-title nexa-bold">Informações do agendamento </h2>
           <h3 class="fs-subtitle nexa-bold">Por fim, conte um pouco para nós sobre as suas dúvidas</h3>
           <textarea name="messageUser" cols="30" rows="3" placeholder="Deixe uma mensagem para que possamos entender melhor suas necessidades" v-model="messageUser"></textarea>
+          <div class="alert alert-danger" v-show="this.errors.length > 0">Alguns campos ainda não foram preenchidos ou não foram preenchidos devidamente. Favor revise</div>
           <input type="button" name="previous" class="previous action-button-previous" value="Anterior" aria-label="Voltar para o passo anterior" @click="toInstitutional">
-          <input type="submit" name="submit" class="submit action-button" value="Agendar" aria-label="Concluir agendamento">
+          <input type="submit" name="submit" class="submit action-button" value="Agendar" aria-label="Concluir agendamento" @click="checkForm">
         </fieldset>
       </form>
     </div> 
@@ -44,34 +45,21 @@
 </template>
 
 <script>
-import useVuelidate from '../../node_modules/vuelidate/dist/vuelidate.min.js';
-import { required, email } from '../../node_modules/vuelidate/dist/validators.min.js';
 import { courses } from '../../static/js/academic/courses';
 import { units } from '../../static/js/academic/units';
 
 export default {
   name: 'Scheduling',
-  
-  validators() {
-    return {
-      nameUser: { required },
-      phoneUser : { required },
-      emailUser: { email },
-      courseUser: { required },
-      campusUser: { required },
-      registryUser: { required },
-      messageUser: { required },
-    }
-  },
   data() {
     return {
+      errors: [],
       courses: courses,
       units: units,
       nameUser: '',
       phoneUser: '',
       emailUser: '',
-      courseUser: 'Selecione o seu curso',
-      campusUser: 'Selecione o seu instituto ou campus',
+      courseUser: '',
+      campusUser: '',
       registryUser: '',
       messageUser: '',
       institutionalActive: false,
@@ -109,7 +97,40 @@ export default {
       this.showScheduling = true;
       this.institutionalActive = true;
       this.schedulingActive = true;
-    }
+    },
+    checkForm (e) {
+      this.errors = [];
+
+      if (!this.nameUser) {
+        this.errors.push('O nome é obrigatório');
+      }
+
+      if (!this.emailUser) {
+        this.errors.push('O e-mail é obrigatório');
+      }
+
+      if (!this.phoneUser) {
+        this.errors.push('O telefone/celular é obrigatório');
+      }
+
+      if (!this.courseUser) {
+        this.errors.push('Informe o seu curso');
+      }
+
+      if (!this.campusUser) {
+        this.errors.push('Informe o seu campus ou unidade');
+      }
+
+      if (!this.registryUser) {
+        this.errors.push('Informe o seu número de matrícula');
+      }
+      
+      if (!this.errors.length) {
+        return true;
+      }
+
+      e.preventDefault();
+    },
   }
 }
 </script>
