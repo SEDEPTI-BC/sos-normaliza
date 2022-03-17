@@ -53,6 +53,7 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/bootstrap
     'bootstrap-vue/nuxt',
+    '@nuxtjs/axios',
   ],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
@@ -64,5 +65,10 @@ export default {
     port: 3000,
     host: process.env.HOST,
     timing: false,
+  },
+
+  // Axios Configuration: https://axios.nuxtjs.org/
+  axios: {
+    baseUrl: process.env.API_URL,  
   }
 }
