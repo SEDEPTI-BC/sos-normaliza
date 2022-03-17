@@ -63,9 +63,9 @@ async function verifyOpaqueToken(token, allowlist) {
 }
 
 // TODO: finish refactoring of this function
-// async function invalidateRefreshToken(refreshToken) {
-//   await allowlistRefreshToken.delete(refreshToken);
-// }
+async function invalidateOpaqueToken(refreshToken, allowlist) {
+  await allowlist.delete(refreshToken);
+}
 
 module.exports = {
   access: {
@@ -91,7 +91,7 @@ module.exports = {
       return await verifyOpaqueToken(token, this.allowlist);
     },
     invalidate(token) {
-      return invalidateOpaqueToken(token);
+      return invalidateOpaqueToken(token, this.allowlist);
     },
   },
 };

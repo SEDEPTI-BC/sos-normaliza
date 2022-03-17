@@ -1,4 +1,3 @@
-const denylistAccessToken = require('../../redis/denylist-access-token');
 const tokens = require('../services/auth/tokens');
 
 class AuthController {
@@ -18,7 +17,7 @@ class AuthController {
   static async logout(req, res) {
     try {
       const token = req.token;
-      await denylistAccessToken.add(token);
+      await tokens.access.invalidate(token);
 
       return res.status(204).send();
     } catch (error) {

@@ -56,7 +56,7 @@ async function refreshToken(req, res, next) {
     const { refreshToken } = req.body;
 
     const userId = await tokens.refresh.verify(refreshToken);
-    await invalidateRefreshToken(refreshToken);
+    await tokens.refresh.invalidate(refreshToken);
 
     req.user = await UserRepository.getUserById(+userId);
 
