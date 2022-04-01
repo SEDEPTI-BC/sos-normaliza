@@ -1,31 +1,23 @@
-const jwt = require('jsonwebtoken');
-const blacklist = require('../../redis/handle-blacklist');
-
-function createTokenJWT(user) {
-  const payload = {
-    id: user.id,
-  };
-
-  const token = jwt.sign(payload, process.env.JWT_SECRET_PASSWORD, {
-    expiresIn: '15m',
-  });
-
-  return token;
-}
+const tokens = require('../services/auth/tokens');
 
 class AuthController {
   static async login(req, res) {
-    const token = createTokenJWT(req.user);
+    try {
+      const accessToken = tokens.access.create(req.user.id);
+      const refreshToken = await tokens.refresh.create(req.user.id);
 
-    // returns token in response headers, specifically the Authorization header
-    res.set('Authorization', token);
-    return res.status(204).send();
+      // returns token in response headers, specifically the Authorization header
+      res.set('Authorization', accessToken);
+      return res.status(200).json({ refreshToken });
+    } catch (error) {
+      return res.status(500).json({ error: error.message });
+    }
   }
 
   static async logout(req, res) {
     try {
       const token = req.token;
-      await blacklist.add(token);
+      await tokens.access.invalidate(token);
 
       return res.status(204).send();
     } catch (error) {
