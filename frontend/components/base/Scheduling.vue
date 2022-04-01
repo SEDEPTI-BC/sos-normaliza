@@ -34,7 +34,38 @@
         <fieldset class="animate__animated animate__fadeInLeft" v-if="showScheduling">
           <h2 class="fs-title nexa-bold">Informações do agendamento </h2>
           <h3 class="fs-subtitle nexa-bold">Por fim, conte um pouco para nós sobre as suas dúvidas</h3>
-          <textarea name="messageUser" cols="30" rows="3" placeholder="Deixe uma mensagem para que possamos entender melhor suas necessidades" v-model="messageUser"></textarea>
+          <!-- <textarea name="messageUser" cols="30" rows="3" placeholder="Deixe uma mensagem para que possamos entender melhor suas necessidades" v-model="messageUser"></textarea> -->
+          <div class="doubts d-flex flex-nowrap justify-content-around text-dark">
+            <div class="wrapper">
+              <div class="doubt">
+                <label for="references">Referências</label>
+                <input type="checkbox" name="references" id="references" value="Referências" v-model="doubtsUser">
+              </div>
+              <div class="doubt">
+                <label for="summary">Sumário</label>
+                <input type="checkbox" name="summary" id="summary" value="Sumário" v-model="doubtsUser">
+              </div>
+              <div class="doubt">
+                <label for="abstract">Resumo</label>
+                <input type="checkbox" name="abstract" id="abstract" value="Resumo" v-model="doubtsUser">
+              </div>
+            </div>
+            <div class="wrapper">
+              <div class="doubt">
+                <label for="citation">Citação</label>
+                <input type="checkbox" name="citation" id="citation" value="Citação" v-model="doubtsUser">
+              </div>
+              <div class="doubt">
+                <label for="workStructure">Estrutura do trabalho</label>
+                <input type="checkbox" name="workStructure" id="workStructure" value="Estrutura do trabalho" v-model="doubtsUser">
+              </div>
+              <div class="doubt">
+                <label for="sectionNumbering">Numeração de seções</label>
+                <input type="checkbox" name="sectionNumbering" id="sectionNumbering" value="Numeração de seções" v-model="doubtsUser">
+              </div>
+            </div>
+          </div>
+          <h3 class="fs-subtitle nexa-bold">Minhas dúvidas são: {{ doubtsUser }}</h3>
           <div class="alert alert-danger" v-show="this.errors.length > 0">Alguns campos ainda não foram preenchidos ou não foram preenchidos devidamente. Favor revise</div>
           <input type="button" name="previous" class="previous action-button-previous" value="Anterior" aria-label="Voltar para o passo anterior" @click="toInstitutional">
           <input type="submit" name="submit" class="submit action-button" value="Agendar" aria-label="Concluir agendamento" @click="checkForm">
@@ -61,7 +92,8 @@ export default {
       courseUser: '',
       campusUser: '',
       registryUser: '',
-      messageUser: '',
+      // messageUser: '',
+      doubtsUser: [],
       institutionalActive: false,
       schedulingActive: false,
       showPersonal: true,
@@ -126,12 +158,20 @@ export default {
       }
       
       if (!this.errors.length) {
-        return true;
+        let data = {
+          requester_name: this.nameUser,
+          requester_email: this.emailUser,
+        }
+
+        return this.$axios.$post('/schedulings', { data });
       }
 
       e.preventDefault();
     },
-  }
+    createSchedule () {
+
+    }
+  },
 }
 </script>
 
